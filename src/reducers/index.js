@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+/// state object for that reducer
 const initialState = {
   value: 0,
-  namOfReducer:"My counter Reducer"
+  namOfReducer:"My counter Reducer",
+  obj2:{
+    name:"S"
+  }
 }
 
 export const counterSlice = createSlice({
@@ -27,6 +31,8 @@ export const counterSlice = createSlice({
     },
 
     incrementByAmount: (state, action) => {
+
+      debugger;
       state.value += action.payload
     },
     login:()=>{
