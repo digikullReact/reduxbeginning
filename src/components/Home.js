@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
-import { increment ,decrement} from '../reducers';
+import { increment ,decrement,incrementByTwo} from '../reducers';
 
 
 function Home() {
@@ -26,9 +26,20 @@ function Home() {
             <button onClick={()=>dispatch(decrement())}>
                Decrement
             </button>
+
+
+            <button onClick={()=>dispatch(incrementByTwo())}>
+               Increment By 2
+            </button>
+
+
+
             
         </div>
     )
 }
 
 export default Home
+
+
+/// Decrement by 2   --->
