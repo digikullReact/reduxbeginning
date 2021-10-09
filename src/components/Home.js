@@ -8,7 +8,9 @@ function Home() {
 
 
     const sendDispatch=()=>{
-        dispatch(increment())
+        dispatch(increment())  /// dispatching the increment action
+
+        /// Single dispatch can be used to dispatch multiple actions
 
     }
 
@@ -21,7 +23,7 @@ function Home() {
             </button>
 
 
-            <button>
+            <button onClick={()=>dispatch(decrement())}>
                Decrement
             </button>
             

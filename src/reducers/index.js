@@ -2,12 +2,15 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 0,
+  namOfReducer:"My counter Reducer"
 }
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
+
+    /// ACTIONS --->
     increment: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
@@ -21,6 +24,12 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload
     },
+    login:()=>{
+
+    },
+    signup:()=>{
+      
+    }
   },
 })
 
