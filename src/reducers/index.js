@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import {fetchUserById} from "../thunks"
 
 /// state object for that reducer
 const initialState = {
@@ -6,7 +7,8 @@ const initialState = {
   namOfReducer:"My counter Reducer",
   obj2:{
     name:"S"
-  }
+  },
+  entities:[]
 }
 
 export const counterSlice = createSlice({
@@ -40,7 +42,25 @@ export const counterSlice = createSlice({
     },
     signup:()=>{
       
-    }
+    },
+   
+    
+  },
+  extraReducers: (builder) => {
+
+
+ 
+    // Add reducers for additional action types here, and handle loading state as needed
+    builder.addCase(fetchUserById.pending, (state, action) => {
+      debugger;
+
+      // Add user to the state array
+  
+    }).addCase(fetchUserById.fulfilled, (state, action) => {
+debugger;
+      // Add user to the state array
+    state.entities=action.payload.data;
+    })
   },
 })
 

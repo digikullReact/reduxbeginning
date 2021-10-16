@@ -1,57 +1,40 @@
-import React,{useState} from 'react'
-import {useDispatch} from "react-redux";
-import { increment ,decrement,incrementByTwo, incrementByAmount} from '../reducers';
+import React,{useStat,useEffect} from 'react'
+import {useDispatch,useSelector} from "react-redux";
+import { fetchUserById} from '../thunks';
 
+
+// useState is specific to the that component--->
 
 function Home() {
     const dispatch= useDispatch();
-
-    const [state,setState]=useState("");
-
-
-    const sendDispatch=()=>{
-        dispatch(increment())  /// dispatching the increment action
-
-        /// Single dispatch can be used to dispatch multiple actions
-
-    }
+    const state=useSelector(state=>state.counter);
 
 
-    const handleChange=(event)=>{
-        setState(event.target.value);
 
-    }
+    useEffect(() => {
+        debugger;
+        dispatch(fetchUserById())
+      
+    }, [])
 
-    const dispatchAnother=()=>{
-        dispatch(incrementByAmount(parseInt(state)))
-    }
+  
+
+
+
+
+ 
 
 
     return (
         <div style={{marginTop:"400px"}}>
 
-            <button onClick={sendDispatch}>
-                Increment
-            </button>
+            {
+                state.entities.map(ele=>(
+                    <li>{ele.name}</li>
+                ))
+            }
 
-
-            <button onClick={()=>dispatch(decrement())}>
-               Decrement
-            </button>
-
-
-            <button onClick={()=>dispatch(incrementByTwo())}>
-               Increment By 2
-            </button>
-            
-
-            <input type="text"  onChange={handleChange}/>
-
-
-            <button onClick={dispatchAnother}>
-               Increment By Value
-            </button>
-
+           
 
             
         </div>
